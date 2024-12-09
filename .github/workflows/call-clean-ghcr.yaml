@@ -70,7 +70,7 @@ jobs:
       # https://github.com/vlaurin/action-ghcr-prune
       - name: Delete CI image
         if: ${{ steps.args.outputs.tag_regex != '' }}
-        uses: vlaurin/action-ghcr-prune@v0.4.0
+        uses: vlaurin/action-ghcr-prune@v0.6.0
         with:
           # failed to use secrets.GITHUB_TOKEN
           # must use personal PAT with with scopes packages:read and packages:delete and write permissions
@@ -92,7 +92,7 @@ jobs:
 
       - name: Delete CI image
         if: ${{ steps.args.outputs.tag_regex == '' }}
-        uses: vlaurin/action-ghcr-prune@v0.4.0
+        uses: vlaurin/action-ghcr-prune@v0.6.0
         with:
           token: ${{ secrets.PAT }}
           organization: ${{ github.repository_owner }}
